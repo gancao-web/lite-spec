@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lite Spec"
+  short_description: "建立文档体系(lite:init)、需求梳理(lite:plan)、设计稿落地(lite:d2c)、沉淀知识(lite:knowledge)、访问外链(lite:open)"
+  default_prompt: "使用 $lite-spec 的工作流，先判断该请求适合 /lite:init、/lite:plan、/lite:d2c、/lite:open 还是 /lite:knowledge，再按对应入口处理。"

@@ -12,6 +12,14 @@ export type LiteSpecCredentials = {
     token: string;
     updatedAt?: string;
   };
+  dingtalk?: {
+    cookie: string;
+    xsrfToken?: string;
+    aToken?: string;
+    docKey?: string;
+    dentryKey?: string;
+    updatedAt?: string;
+  };
 };
 
 export function getLiteSpecHome(): string {

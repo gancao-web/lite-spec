@@ -1,7 +1,12 @@
 param(
   [string]$YapiUid,
   [string]$YapiToken,
-  [string]$FigmaToken
+  [string]$FigmaToken,
+  [string]$DingtalkCookie,
+  [string]$DingtalkXsrfToken,
+  [string]$DingtalkAToken,
+  [string]$DingtalkDocKey,
+  [string]$DingtalkDentryKey
 )
 
 $engineDir = Join-Path $PSScriptRoot "spec-engine"
@@ -20,14 +25,19 @@ if (([string]::IsNullOrWhiteSpace($YapiUid) -xor [string]::IsNullOrWhiteSpace($Y
   throw "YApi credentials require both -YapiUid and -YapiToken"
 }
 
-if ([string]::IsNullOrWhiteSpace($YapiUid) -and [string]::IsNullOrWhiteSpace($YapiToken) -and [string]::IsNullOrWhiteSpace($FigmaToken)) {
-  throw "Provide -YapiUid/-YapiToken or -FigmaToken"
+if ([string]::IsNullOrWhiteSpace($YapiUid) -and [string]::IsNullOrWhiteSpace($YapiToken) -and [string]::IsNullOrWhiteSpace($FigmaToken) -and [string]::IsNullOrWhiteSpace($DingtalkCookie)) {
+  throw "Provide -YapiUid/-YapiToken, -FigmaToken, or -DingtalkCookie"
 }
 
 $input = @{}
 if ($YapiUid) { $input.yapiUid = $YapiUid }
 if ($YapiToken) { $input.yapiToken = $YapiToken }
 if ($FigmaToken) { $input.figmaToken = $FigmaToken }
+if ($DingtalkCookie) { $input.dingtalkCookie = $DingtalkCookie }
+if ($DingtalkXsrfToken) { $input.dingtalkXsrfToken = $DingtalkXsrfToken }
+if ($DingtalkAToken) { $input.dingtalkAToken = $DingtalkAToken }
+if ($DingtalkDocKey) { $input.dingtalkDocKey = $DingtalkDocKey }
+if ($DingtalkDentryKey) { $input.dingtalkDentryKey = $DingtalkDentryKey }
 
 $env:LITE_SPEC_INPUT = $input | ConvertTo-Json -Depth 4 -Compress
 $env:LITE_SPEC_ENTRY = $entryPath

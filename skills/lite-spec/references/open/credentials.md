@@ -173,6 +173,29 @@ Figma 结构：
 - 检查是否已有可用访问方式
 - 没有则进入阻塞状态
 
+## 钉钉文档
+
+若钉钉文档需要登录，优先从一个能够成功返回目标文档数据的 Fetch/XHR 请求中提取：
+
+- 完整 `Cookie` 请求头
+- `x-xsrf-token`
+- `a-token`
+- `a-doc-key`
+- `a-dentry-key`
+
+Windows 保存入口：
+
+```powershell
+scripts/save-credentials.ps1 `
+  -DingtalkCookie <cookie> `
+  -DingtalkXsrfToken <xsrf-token> `
+  -DingtalkAToken <a-token> `
+  -DingtalkDocKey <a-doc-key> `
+  -DingtalkDentryKey <a-dentry-key>
+```
+
+保存后必须运行 `scripts/show-credentials.ps1`，确认 `hasDingtalk` 为 `true`。随后先调用来源接口验证认证状态，再访问目标预览页或正文接口确认文档正文可读。
+
 ## 其他需要登录的网站
 
 若资料来源不是 YApi / Figma / 原型系统，而是其他需要登录的网站或平台：

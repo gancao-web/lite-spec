@@ -28,6 +28,8 @@ const result = {
   yapiUpdatedAt: credentials.yapi?.updatedAt ?? null,
   hasFigma: Boolean(credentials.figma?.token),
   figmaUpdatedAt: credentials.figma?.updatedAt ?? null,
+  hasDingtalk: Boolean(credentials.dingtalk?.cookie),
+  dingtalkUpdatedAt: credentials.dingtalk?.updatedAt ?? null,
 };
 
 console.log(JSON.stringify(result, null, 2));

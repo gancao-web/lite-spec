@@ -21,9 +21,11 @@ if (!entryPath) throw new Error("Missing LITE_SPEC_ENTRY");
 const { getCredentialsPath, getLiteSpecHome, readStoredCredentials } = await import(`file:///${entryPath}`);
 
 const credentials = await readStoredCredentials();
+const webHosts = Object.keys(credentials.web ?? {});
 const result = {
   runtimeHome: getLiteSpecHome(),
   credentialsPath: getCredentialsPath(),
+  webHosts,
   hasYapi: Boolean(credentials.yapi?.uid && credentials.yapi?.token),
   yapiUpdatedAt: credentials.yapi?.updatedAt ?? null,
   hasFigma: Boolean(credentials.figma?.token),

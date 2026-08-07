@@ -198,8 +198,22 @@ scripts/save-credentials.ps1 `
 
 ## 其他需要登录的网站
 
-若资料来源不是 YApi / Figma / 原型系统，而是其他需要登录的网站或平台：
+对于未被专用连接器覆盖的登录态网站，统一要求用户提供一个已经成功返回目标资源的 cURL 请求。模型从 cURL 中解析 URL、Cookie、Authorization、X-* 防伪头以及目标请求所需的自定义认证头，并按主机名保存到 runtime home：
+
+```powershell
+scripts/save-credentials.ps1 `
+  -WebHost <hostname> `
+  -WebUrl <request-url> `
+  -WebCookie <cookie> `
+  -WebHeadersJson '{"authorization":"...","x-xsrf-token":"..."}'
+```
+
+保存后先运行 `scripts/show-credentials.ps1`，确认 `webHosts` 包含目标主机；再用同一 URL 和保存的请求信息做机器可判定验证，最后读取目标资源正文。
+
+若用户未能提供成功请求的 cURL，则明确说明需要补充“目标资源请求的完整请求信息”，而不是猜测某个站点的 Cookie 名称。
+
+这套通用流程适用于其他需要登录的网站或平台：
 
 - 先判断该站点需要 token、cookie、uid、header 还是其他会话信息
-- 若当前没有可用凭证，明确告诉用户需要补哪些凭证信息
-- 若后续接入脚本支持，可按与 YApi 相同的方式保存到 runtime home，供后续自动复用
+- 当前没有可用凭证时，明确告诉用户提供成功请求的 cURL
+- 保存到 runtime home，供后续按主机名复用

@@ -1,4 +1,8 @@
 param(
+  [string]$WebHost,
+  [string]$WebUrl,
+  [string]$WebCookie,
+  [string]$WebHeadersJson,
   [string]$YapiUid,
   [string]$YapiToken,
   [string]$FigmaToken,
@@ -25,11 +29,15 @@ if (([string]::IsNullOrWhiteSpace($YapiUid) -xor [string]::IsNullOrWhiteSpace($Y
   throw "YApi credentials require both -YapiUid and -YapiToken"
 }
 
-if ([string]::IsNullOrWhiteSpace($YapiUid) -and [string]::IsNullOrWhiteSpace($YapiToken) -and [string]::IsNullOrWhiteSpace($FigmaToken) -and [string]::IsNullOrWhiteSpace($DingtalkCookie)) {
-  throw "Provide -YapiUid/-YapiToken, -FigmaToken, or -DingtalkCookie"
+if ([string]::IsNullOrWhiteSpace($WebHost) -and [string]::IsNullOrWhiteSpace($YapiUid) -and [string]::IsNullOrWhiteSpace($YapiToken) -and [string]::IsNullOrWhiteSpace($FigmaToken) -and [string]::IsNullOrWhiteSpace($DingtalkCookie)) {
+  throw "Provide generic web, YApi, Figma, or DingTalk credentials"
 }
 
 $input = @{}
+if ($WebHost) { $input.webHost = $WebHost }
+if ($WebUrl) { $input.webUrl = $WebUrl }
+if ($WebCookie) { $input.webCookie = $WebCookie }
+if ($WebHeadersJson) { $input.webHeadersJson = $WebHeadersJson }
 if ($YapiUid) { $input.yapiUid = $YapiUid }
 if ($YapiToken) { $input.yapiToken = $YapiToken }
 if ($FigmaToken) { $input.figmaToken = $FigmaToken }

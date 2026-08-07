@@ -3,6 +3,12 @@ import os from 'node:os';
 import path from 'node:path';
 
 export type LiteSpecCredentials = {
+  web?: Record<string, {
+    url: string;
+    cookie?: string;
+    headers?: Record<string, string>;
+    updatedAt?: string;
+  }>;
   yapi?: {
     uid: string;
     token: string;
@@ -56,6 +62,14 @@ export async function readStoredCredentials(): Promise<LiteSpecCredentials> {
     }
     throw error;
   }
+}
+
+export function getStoredWebCredentials(
+  credentials: LiteSpecCredentials,
+  targetUrl: string,
+): NonNullable<LiteSpecCredentials['web']>[string] | undefined {
+  const host = new URL(targetUrl).hostname.toLowerCase();
+  return credentials.web?.[host];
 }
 
 export async function writeStoredCredentials(next: LiteSpecCredentials): Promise<string> {

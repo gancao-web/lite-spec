@@ -35,7 +35,7 @@ npx skills add https://github.com/gancao-web/lite-spec.git
 
 ## 为什么叫 lite
 
-这个 skill 的出发点，就是想要一个比 `OpenSpec` 或 `Superpowers` 更轻的方案。
+这个 skill 的出发点，就是想要一个比 `OpenSpec` 更轻的方案。
 
 `lite` 代表的是：
 
@@ -45,11 +45,11 @@ npx skills add https://github.com/gancao-web/lite-spec.git
 
 它不是要替代完整的规格驱动体系，而是更适合日常高频迭代、需要快速推进但又不想失去知识沉淀的项目工作流。
 
-## 和 `OpenSpec` / `Superpowers` 的区别
+## 和 `OpenSpec` 的区别
 
 下面这个对比更偏向产品定位差异，用来说明 `lite-spec` 为什么存在：
 
-| 对比项 | `OpenSpec` / `Superpowers` | `lite-spec` |
+| 对比项 | `OpenSpec` | `lite-spec` |
 | --- | --- | --- |
 | 核心思路 | 强调完整计划体系、规格驱动和流程约束 | 强调轻计划、快执行，先把事情推进起来 |
 | 输出目标 | 更完整、更体系化的 spec / plan 产物 | 快速产出当前需求的 plan / task 产物 |
@@ -57,7 +57,7 @@ npx skills add https://github.com/gancao-web/lite-spec.git
 | 定位特点 | 更适合围绕既有规划流程协作 | 更轻量，更适合日常高频需求推进 |
 | 适合场景 | 统一计划体系、强流程协作的项目 | 快速推进、同时保留基本计划与知识沉淀的项目 |
 
-- 若项目已经明确采用 `OpenSpec` 或 `Superpowers`，那就继续用原有体系做 plan
+- 若项目已经明确采用 `OpenSpec` 或其他稳定规划体系，那就继续用原有体系做 plan
 - 当然`lite-spec`也支持跟它们一起工作，计划产物会优先遵循原体系的规则
 
 ## 和 AI工具 `plan` 模式的区别

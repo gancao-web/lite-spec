@@ -38,7 +38,7 @@ It will:
 
 ## Why "lite"
 
-This skill started from a simple goal: provide something lighter than `OpenSpec` or `Superpowers`.
+This skill started from a simple goal: provide something lighter than `OpenSpec`.
 
 `lite` stands for:
 
@@ -48,11 +48,11 @@ This skill started from a simple goal: provide something lighter than `OpenSpec`
 
 It is not meant to replace a full specification-driven system. It is meant for high-frequency iterative work that needs momentum without giving up documentation and knowledge retention.
 
-## Difference from `OpenSpec` / `Superpowers`
+## Difference from `OpenSpec`
 
 This comparison is mainly about product positioning and explains why `lite-spec` exists:
 
-| Comparison | `OpenSpec` / `Superpowers` | `lite-spec` |
+| Comparison | `OpenSpec` | `lite-spec` |
 | --- | --- | --- |
 | Core approach | Emphasizes a complete planning system, spec-driven workflow, and stronger process constraints | Emphasizes lightweight planning and fast execution so the work can move forward quickly |
 | Output goal | More complete and systematized spec / plan artifacts | Quickly produce plan / task artifacts for the current requirement |
@@ -60,7 +60,7 @@ This comparison is mainly about product positioning and explains why `lite-spec`
 | Positioning | Better for teams working around an established planning system | Lighter and better suited for frequent day-to-day requirement delivery |
 | Best fit | Projects that want a unified planning framework and strong process collaboration | Projects that want to move fast while still keeping basic planning and knowledge capture |
 
-- If a project has already standardized on `OpenSpec` or `Superpowers`, keep using that system for planning
+- If a project has already standardized on `OpenSpec` or another stable planning system, keep using that system for planning
 - `lite-spec` can still work alongside them, but planning artifacts should follow the original system's rules first
 
 ## Difference from an AI Tool's `plan` Mode

@@ -6,7 +6,7 @@
 
 适用条件：
 
-- 目标仓库已经明确采用 `OpenSpec`、`Superpowers`
+- 目标仓库已经明确采用 `OpenSpec` 或其他稳定规划框架
 - 或仓库已经有另一套稳定的计划 / task 主真源，若继续生成 `lite-spec` 的 `plan.md`、`tasks.md` 会造成双轨主真源
 
 输出要求：
